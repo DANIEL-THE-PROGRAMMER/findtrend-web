@@ -7,51 +7,51 @@ import { Wrapper } from "../styles/globalcss";
 
 export default function Footer() {
   return (
-    <Wrapper>
-      <FooterContent>
-        <Logo>
+    <OuterDiv>
+      <Wrapper>
+        <FooterDiv>
           <Image
             width={150}
-            height={150}
+            height={41}
             src="/assets/images/svgs/blacklogo.svg"
             alt="logo"
           />
-        </Logo>
-        <Links>
-          <ListItems>Privacy Policy</ListItems>
-          <ListItems>Terms and Conditions</ListItems>
-          <ListItems>Contact Us</ListItems>
-          <ListItems>Careers</ListItems>
-        </Links>
-      </FooterContent>
-    </Wrapper>
+          <FooterLinkContainer>
+            <ListItems>Privacy Policy</ListItems>
+            <ListItems>Terms and Conditions</ListItems>
+            <ListItems>Contact Us</ListItems>
+            <ListItems>Careers</ListItems>
+          </FooterLinkContainer>
+        </FooterDiv>
+      </Wrapper>
+    </OuterDiv>
   );
 }
 
+const OuterDiv = styled.div`
+  background-color: white;
+  min-height: 100px;
+  display:flex;
+  align-items:center;
+`;
 
-const FooterContent = styled.div`
+const FooterDiv = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 41px;
-  margin: 30px auto;
-  border-radius: 0px;
-  padding: 0 20px;
+  justify-content: space-between;
+`;
 
+const FooterLinkContainer = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: black;
+  font-size: 18px;
   @media only screen and (max-width: 765px) {
     flex-direction: column;
   }
 `;
-const Logo = styled.div``;
-const Links = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline-start: unset;
-  @media only screen and (max-width: 765px) {
-    flex-direction: column;
-  }
-`;
+
 const ListItems = styled.li`
   list-style: none;
   margin: 0 20px;

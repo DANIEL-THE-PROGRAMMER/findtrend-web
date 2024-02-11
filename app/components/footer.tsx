@@ -33,12 +33,16 @@ const OuterDiv = styled.div`
   min-height: 100px;
   display:flex;
   align-items:center;
+  padding:50px 0 80px 0;
 `;
 
 const FooterDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width:666px){
+    flex-direction:column;
+  }
 `;
 
 const FooterLinkContainer = styled.ul`
@@ -49,6 +53,7 @@ const FooterLinkContainer = styled.ul`
   font-size: 18px;
   @media only screen and (max-width: 765px) {
     flex-direction: column;
+    margin-top:50px;
   }
 `;
 

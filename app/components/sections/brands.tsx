@@ -18,22 +18,86 @@ export const BrandSection: React.FC = () => {
     width: number;
     height: number;
   }[] = [
-    { image: "/assets/images/pngs/image 116.png", width: isWindow ? 190 : 156, height: isWindow ? 40 : 24 },
-    { image: "/assets/images/pngs/image 117.png", width: isWindow ? 156 : 156, height: isWindow ? 40 : 24 },
-    { image: "/assets/images/pngs/image 118.png", width: isWindow ? 146 : 156, height: isWindow ? 40 : 26 },
-    { image: "/assets/images/pngs/image 119.png", width: isWindow ? 174 : 156, height: isWindow ? 40 : 15 },
-    { image: "/assets/images/pngs/image 120.png", width: isWindow ? 112 : 156, height: isWindow ? 40 : 26 },
-    { image: "/assets/images/pngs/image 121.png", width: isWindow ? 162 : 156, height: isWindow ? 40 : 21 },
-    { image: "/assets/images/pngs/image 122.png", width: isWindow ? 148 : 156, height: isWindow ? 40 : 19 },
-    { image: "/assets/images/pngs/image 124.png", width: isWindow ? 151 : 156, height: isWindow ? 40 : 26 },
-    { image: "/assets/images/pngs/image 125.png", width: isWindow ? 182 : 156, height: isWindow ? 40 : 24 },
-    { image: "/assets/images/pngs/image 126.png", width: isWindow ? 164 : 156, height: isWindow ? 40 : 29 },
-    { image: "/assets/images/pngs/image 127.png", width: isWindow ? 174 : 156, height: isWindow ? 40 : 25 },
-    { image: "/assets/images/pngs/image 128.png", width: isWindow ? 160 : 97, height: isWindow ? 40 : 17 },
-    { image: "/assets/images/pngs/image 129.png", width: isWindow ? 176 : 108, height: isWindow ? 40 : 23 },
-    { image: "/assets/images/pngs/image 130.png", width: isWindow ? 178 : 108, height: isWindow ? 40 : 20 },
-    { image: "/assets/images/pngs/image 132.png", width: isWindow ? 162 : 98, height: isWindow ? 40 : 24 },
-    { image: "/assets/images/pngs/image 133.png", width: isWindow ? 190 : 156, height: isWindow ? 40 : 21 },
+    {
+      image: "/assets/images/pngs/image 116.png",
+      width: isWindow ? 190 : 156,
+      height: isWindow ? 40 : 24,
+    },
+    {
+      image: "/assets/images/pngs/image 117.png",
+      width: isWindow ? 156 : 156,
+      height: isWindow ? 40 : 24,
+    },
+    {
+      image: "/assets/images/pngs/image 118.png",
+      width: isWindow ? 146 : 156,
+      height: isWindow ? 40 : 26,
+    },
+    {
+      image: "/assets/images/pngs/image 119.png",
+      width: isWindow ? 174 : 156,
+      height: isWindow ? 40 : 15,
+    },
+    {
+      image: "/assets/images/pngs/image 120.png",
+      width: isWindow ? 112 : 156,
+      height: isWindow ? 40 : 26,
+    },
+    {
+      image: "/assets/images/pngs/image 121.png",
+      width: isWindow ? 162 : 156,
+      height: isWindow ? 40 : 21,
+    },
+    {
+      image: "/assets/images/pngs/image 122.png",
+      width: isWindow ? 148 : 156,
+      height: isWindow ? 40 : 19,
+    },
+    {
+      image: "/assets/images/pngs/image 124.png",
+      width: isWindow ? 151 : 156,
+      height: isWindow ? 40 : 26,
+    },
+    {
+      image: "/assets/images/pngs/image 125.png",
+      width: isWindow ? 182 : 156,
+      height: isWindow ? 40 : 24,
+    },
+    {
+      image: "/assets/images/pngs/image 126.png",
+      width: isWindow ? 164 : 156,
+      height: isWindow ? 40 : 29,
+    },
+    {
+      image: "/assets/images/pngs/image 127.png",
+      width: isWindow ? 174 : 156,
+      height: isWindow ? 40 : 25,
+    },
+    {
+      image: "/assets/images/pngs/image 128.png",
+      width: isWindow ? 160 : 97,
+      height: isWindow ? 40 : 17,
+    },
+    {
+      image: "/assets/images/pngs/image 129.png",
+      width: isWindow ? 176 : 108,
+      height: isWindow ? 40 : 23,
+    },
+    {
+      image: "/assets/images/pngs/image 130.png",
+      width: isWindow ? 178 : 108,
+      height: isWindow ? 40 : 20,
+    },
+    {
+      image: "/assets/images/pngs/image 132.png",
+      width: isWindow ? 162 : 98,
+      height: isWindow ? 40 : 24,
+    },
+    {
+      image: "/assets/images/pngs/image 133.png",
+      width: isWindow ? 190 : 156,
+      height: isWindow ? 40 : 21,
+    },
   ];
 
   return (
@@ -52,11 +116,16 @@ export const BrandSection: React.FC = () => {
 
           <DarkTitle>Findtrend make +1000 Startup grow</DarkTitle>
           <BrandsContainer>
-            { BrandsImage.map((brand, index) => {
+            {BrandsImage.map((brand, index) => {
               return (
-                <Brand width={brand.width} height={brand.height} image={brand.image} key={index+1} />
-              )
-            }) }
+                <Brand
+                  width={brand.width}
+                  height={brand.height}
+                  image={brand.image}
+                  key={index + 1}
+                />
+              );
+            })}
           </BrandsContainer>
         </HeroWrapper>
       </Wrapper>
@@ -70,10 +139,13 @@ const OuterDiv = styled.div`
 
 const BrandsContainer = styled.div`
   position: relative;
-  height: 576px;
+  min-height: 576px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  @media screen and (max-width: 666px){
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const HeroWrapper = styled.div`
@@ -82,7 +154,7 @@ const HeroWrapper = styled.div`
     width: 100%;
   }
   @media only screen and (max-width: 666px) {
-    padding: 50px 20px;
+    padding: 100px 20px;
   }
 `;
 const TitleWrapper = styled.div``;

@@ -40,5 +40,6 @@ const BrandDiv = styled.div`
   border-radius: 8px;
   background: #f5f5f5;
   @media only screen and (max-width: 666px) {
+    height: 74px;
   }
 `;

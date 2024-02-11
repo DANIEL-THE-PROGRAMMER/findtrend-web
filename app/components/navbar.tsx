@@ -33,12 +33,23 @@ function Navbar() {
             />
           </LogoHolder>
 
+          <MobileLogo>
+            <Image
+              src="/assets/images/pngs/Vector.png"
+              height={40}
+              width={40}
+              alt="logo"
+            />
+          </MobileLogo>
+
           <NavLinkWrapper toggle={menu}>
             <LinkItems>About</LinkItems>
             <LinkItems>How it Work</LinkItems>
             <LinkItems>Pricing</LinkItems>
             <LinkItems>Solution</LinkItems>
             <LinkItems>Features</LinkItems>
+            <LinkItems>Login</LinkItems>
+            <Register>Register</Register>
           </NavLinkWrapper>
 
           <RegHolder>
@@ -61,8 +72,8 @@ const OuterDiv = styled.div`
   position: absolute;
   top: 0;
   width: 100%;
-  height:99px;
-  z-index:20;
+  height: 99px;
+  z-index: 20;
 `;
 
 const NavWrapper = styled.div`
@@ -74,16 +85,26 @@ const NavWrapper = styled.div`
   padding: 50px 20px;
 `;
 const LogoHolder = styled.div`
-  z-index: 999;
   img {
     width: 200px;
     height: 200px;
+  }
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
+`;
+
+const MobileLogo = styled.div`
+  z-index: 999;
+  display: none;
+  @media only screen and (max-width: 1000px) {
+    display: block;
   }
 `;
 const NavLinkWrapper = styled.div<NavLinkWrapperProps>`
   display: flex;
   justify-content: space-between;
-  gap:50px;
+  gap: 50px;
   transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
   -moz-transition: all 0.5s ease-in;
@@ -102,12 +123,17 @@ const NavLinkWrapper = styled.div<NavLinkWrapperProps>`
     transition: all 0.5s ease-in;
     -o-transition: all 0.5s ease-in;
     -moz-transition: all 0.5s ease-in;
-    background: #172208;
+    background: black;
     width: 100%;
     height: 100vh;
     transform: ${(props) =>
       props.toggle ? "translateY(0px)" : "translateY(-1500px)"};
     display: ${(props) => (props.toggle ? "flex" : "none")};
+  }
+  @media only screen and (max-width: 666px) {
+    padding-top:160px;
+    justify-content: flex-start;
+    gap:60px;
   }
 `;
 const LinkItems = styled.a`
@@ -171,5 +197,5 @@ const Register = styled.div`
   border-radius: 40px;
   cursor: pointer;
   font-size: 18px;
-  color:black;
+  color: black;
 `;

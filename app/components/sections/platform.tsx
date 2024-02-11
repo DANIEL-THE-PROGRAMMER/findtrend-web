@@ -5,15 +5,23 @@ import styled from "styled-components";
 import Image from "next/image";
 import { Wrapper } from "@/app/styles/globalcss";
 import { PlatFormLogos } from "../platformlogos";
+import { useWindow } from "@/app/lib/windowontext";
 
 export const PlatForm = () => {
+  const context = useWindow();
+
+  const { width } = context;
+  const isMobile = width < 666;
+
   return (
     <OuterDiv>
       <Wrapper>
         <HeroWrapper>
           <TopHeader>
             <Title>All platform connect to Findtrend</Title>
-            <Logos>
+          </TopHeader>
+          <Logos>
+            <LogoInnerDiv>
               <PlatFormLogos image="/assets/images/pngs/image 105.png" />
               <PlatFormLogos
                 image="/assets/images/pngs/image 96.png"
@@ -25,27 +33,57 @@ export const PlatForm = () => {
               <PlatFormLogos image="/assets/images/pngs/image 114.png" />
               <PlatFormLogos image="/assets/images/pngs/image 115.png" />
               <PlatFormLogos image="/assets/images/pngs/image 112.png" />
-            </Logos>
-          </TopHeader>
+            </LogoInnerDiv>
+            <LogoInnerDiv2>
+              <PlatFormLogos image="/assets/images/pngs/image 105.png" />
+              <PlatFormLogos
+                image="/assets/images/pngs/image 96.png"
+                color="#a8ff35"
+              />
+              <PlatFormLogos image="/assets/images/pngs/Rectangle 6.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 111.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 113.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 114.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 115.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 112.png" />
+            </LogoInnerDiv2>
+            <LogoInnerDiv3>
+              <PlatFormLogos image="/assets/images/pngs/image 105.png" />
+              <PlatFormLogos
+                image="/assets/images/pngs/image 96.png"
+                color="#a8ff35"
+              />
+              <PlatFormLogos image="/assets/images/pngs/Rectangle 6.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 111.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 113.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 114.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 115.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 112.png" />
+            </LogoInnerDiv3>
+          </Logos>
           <Tweets>
-            <Image
-              width={800}
-              height={274}
-              src="/assets/images/pngs/tweet_1.png"
-              alt="tweet"
-            />
-            <Image
-              width={800}
-              height={804}
-              src="/assets/images/pngs/tweet_2.png"
-              alt="tweet"
-            />
-            <Image
-              width={800}
-              height={274}
-              src="/assets/images/pngs/tweet_3.png"
-              alt="tweet"
-            />
+            <TweetImage>
+              <Image
+                fill={true}
+                src="/assets/images/pngs/tweet_1.png"
+                alt="tweet"
+              />
+            </TweetImage>
+
+            <TweetImageTwo>
+              <Image
+                fill={true}
+                src="/assets/images/pngs/tweet_2.png"
+                alt="tweet"
+              />
+            </TweetImageTwo>
+            <TweetImage>
+              <Image
+                fill={true}
+                src="/assets/images/pngs/tweet_3.png"
+                alt="tweet"
+              />
+            </TweetImage>
           </Tweets>
 
           <TrendBtn>View More Trend</TrendBtn>
@@ -59,6 +97,82 @@ const OuterDiv = styled.div`
   background: #fafafa;
 `;
 
+const LogonInner = styled.div``;
+
+const LogoInnerDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+  @media screen and (max-width: 666px) {
+    animation: slide 5s linear infinite;
+    @keyframes slide {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  }
+`;
+
+const LogoInnerDiv2 = styled.div`
+  justify-content: center;
+  gap: 20px;
+  display: none;
+  @media screen and (max-width: 666px) {
+    display: flex;
+    animation: slide 5s linear infinite;
+    @keyframes slide {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  }
+`;
+
+const LogoInnerDiv3 = styled.div`
+  justify-content: center;
+  gap: 20px;
+  display: none;
+  @media screen and (max-width: 666px) {
+    display: flex;
+    animation: slide 5s linear infinite;
+    @keyframes slide {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  }
+`;
+
+const TweetImage = styled.div`
+  width: 800px;
+  height: 274px;
+  position: relative;
+  @media screen and (max-width: 666px) {
+    width: 100%;
+    height: 136px;
+  }
+`;
+
+const TweetImageTwo = styled.div`
+  width: 800px;
+  height: 804px;
+  position: relative;
+  @media screen and (max-width: 666px) {
+    width: 100%;
+    height: 364px;
+  }
+`;
+
 const HeroWrapper = styled.div`
   margin: 0 auto;
   padding: 100px 20px;
@@ -68,7 +182,7 @@ const HeroWrapper = styled.div`
   align-items: center;
   justify-content: center;
   @media only screen and (max-width: 666px) {
-    padding: 50px 20px;
+    padding: 80px 20px;
   }
 `;
 const TopHeader = styled.h4`
@@ -84,13 +198,20 @@ const TopHeader = styled.h4`
 `;
 const Title = styled.div`
   color: black;
+  @media screen and (max-width: 666px) {
+    font-size: 36px;
+  }
 `;
 const Logos = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 60px;
   margin-bottom: 30px;
-  gap:20px;
+  gap: 20px;
+  @media screen and (max-width: 666px) {
+    margin-bottom: 0px;
+    margin-top: 40px;
+  }
 `;
 const TrendBtn = styled.button`
   border: none;
@@ -115,10 +236,15 @@ const TrendBtn = styled.button`
   cursor: pointer;
 `;
 const Tweets = styled.div`
-  display:flex;
-  justify-content:center;
-  flex-direction:column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   img {
     margin: 40px 0;
+  }
+  @media screen and (max-width: 666px) {
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 50px;
   }
 `;

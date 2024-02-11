@@ -76,6 +76,10 @@ const OuterDiv = styled.div`
 const CardContainerOuter = styled.div`
   display: flex;
   gap: 45px;
+  @media screen and (max-width:666px){
+    flex-direction:column;
+    padding:0px 20px;
+  }
 `;
 const TitleSection = styled.div``;
 const Title = styled.h4`

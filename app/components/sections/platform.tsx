@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { Wrapper } from "@/app/styles/globalcss";
+import { PlatFormLogos } from "../platformlogos";
 
 export const PlatForm = () => {
   return (
@@ -12,7 +13,19 @@ export const PlatForm = () => {
         <HeroWrapper>
           <TopHeader>
             <Title>All platform connect to Findtrend</Title>
-            <Logos></Logos>
+            <Logos>
+              <PlatFormLogos image="/assets/images/pngs/image 105.png" />
+              <PlatFormLogos
+                image="/assets/images/pngs/image 96.png"
+                color="#a8ff35"
+              />
+              <PlatFormLogos image="/assets/images/pngs/Rectangle 6.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 111.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 113.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 114.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 115.png" />
+              <PlatFormLogos image="/assets/images/pngs/image 112.png" />
+            </Logos>
           </TopHeader>
           <Tweets>
             <Image
@@ -72,7 +85,13 @@ const TopHeader = styled.h4`
 const Title = styled.div`
   color: black;
 `;
-const Logos = styled.div``;
+const Logos = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  gap:20px;
+`;
 const TrendBtn = styled.button`
   border: none;
   outline: none;

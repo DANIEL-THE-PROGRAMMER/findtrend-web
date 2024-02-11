@@ -25,8 +25,8 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             <Navbar />
             {children}
+            <Footer />
           </StyledComponentsRegistry>
-          <Footer />
         </WindowContextProvider>
       </body>
     </html>

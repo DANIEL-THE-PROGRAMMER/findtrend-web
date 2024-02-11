@@ -82,12 +82,11 @@ export default function HeroSectionHeader() {
 const OuterDiv = styled.div`
   position: relative;
   width: 100%;
-  min-height: 100vh;
 `;
 
 const ContentWrapper = styled.div`
   margin: 0 auto;
-  padding: 30px 20px 60px;
+  padding: 30px 20px 140px;
 `;
 
 const HeroContainer = styled.div`

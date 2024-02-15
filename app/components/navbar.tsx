@@ -48,8 +48,10 @@ function Navbar() {
             <LinkItems>Pricing</LinkItems>
             <LinkItems>Solution</LinkItems>
             <LinkItems>Features</LinkItems>
-            <LinkItems>Login</LinkItems>
-            <Register>Register</Register>
+            <MobileLinksItems>
+              <LinkItems>Login</LinkItems>
+              <Register>Register</Register>
+            </MobileLinksItems>
           </NavLinkWrapper>
 
           <RegHolder>
@@ -94,6 +96,15 @@ const LogoHolder = styled.div`
   }
 `;
 
+const MobileLinksItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  @media screen and (min-width: 666px) {
+    display: none;
+  }
+`;
+
 const MobileLogo = styled.div`
   z-index: 999;
   display: none;
@@ -131,9 +142,9 @@ const NavLinkWrapper = styled.div<NavLinkWrapperProps>`
     display: ${(props) => (props.toggle ? "flex" : "none")};
   }
   @media only screen and (max-width: 666px) {
-    padding-top:160px;
+    padding-top: 160px;
     justify-content: flex-start;
-    gap:60px;
+    gap: 60px;
   }
 `;
 const LinkItems = styled.a`
